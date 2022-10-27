@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require('dotenv').config()
+require("dotenv").config()
 /**
  * URL to the MongoDB instance.
  */
@@ -13,10 +13,10 @@ let db = mongoose.connection;
 
 // Listen for errors and print them to the console.
 db.on("error", function (err) {
-  console.error("Mongoose Error: ", err);
+	console.error("Mongoose Error: ", err);
 });
 
 // When the MongoDB connection is made, print to the console.
 db.once("open", function () {
-  console.info("Mongoose connection successful.");
+	console.info("Mongoose connection successful.");
 });
