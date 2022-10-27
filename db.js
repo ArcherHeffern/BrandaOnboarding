@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
+require('dotenv').config()
 /**
  * URL to the MongoDB instance.
  */
-const MONGODB_URL = "mongodb+srv://MassiveUziVert:123@cluster0.856tinb.mongodb.net/?retryWrites=true&w=majority";
-
+console.log(process.env.MongoDB_URL)
 // Tell Mongoose to connect to the MongoDB instance using the provided configuration.
-mongoose.connect(MONGODB_URL);
+mongoose.connect(process.env.MongoDB_URL);
 
 /**
  * Mongoose connection to the MongoDB instance.
