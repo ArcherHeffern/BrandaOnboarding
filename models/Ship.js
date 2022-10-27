@@ -15,8 +15,8 @@ let ShipSchema = new Schema({
    * Ship's top speed in kts.
    */
   speed: {
-    value: {type: Number},
-    unit: {type: String, default: "kts"}
+    value: { type: Number },
+    unit: { type: String, default: "kts" }
   },
   /**
    * When this Ship was designed.
@@ -46,9 +46,12 @@ let ShipSchema = new Schema({
    * Ship's belt armor in mm.
    */
   armor: {
-    value: {type: Number},
-    unit: {type: String, default: "mm"}
+    value: { type: Number },
+    unit: { type: String, default: "mm" }
   }
+}, {
+  strict: true,
+  strictQuery: false
 });
 
 let Ship = mongoose.model("Ship", ShipSchema);

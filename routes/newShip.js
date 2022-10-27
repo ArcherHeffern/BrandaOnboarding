@@ -1,3 +1,4 @@
+const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
 let Ship = require("../models/Ship");
@@ -38,7 +39,7 @@ router.post("/newShip/", function (req, res) {
 });
 
 router.get('/getShip/name', (req, res) => {
-  Ship.findOne({ name: req.params.name }, (err, doc) => {
+  Ship.findOne({ name: req.body.name }, (err, doc) => {
     if (err) {
       console.error('Error finding ship')
       res.status(500).send(err)
@@ -46,6 +47,23 @@ router.get('/getShip/name', (req, res) => {
     else {
       if (!doc) {
         res.status(404).send('File not found')
+      }
+      else {
+        res.status(200).send(doc)
+      }
+    }
+  })
+})
+
+router.get('/getShip/:key/:value', (req, res) => {
+  // find item with key req.params['characteristic'] AND value 
+  Ship.find({ [req.params['key']]: req.params['value'] }, (err, doc) => {
+    if (err) {
+      res.status(500).send("Error finding ship")
+    }
+    else {
+      if (!doc) {
+        res.status(404).send("File not found")
       }
       else {
         res.status(200).send(doc)
