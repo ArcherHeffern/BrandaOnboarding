@@ -3,7 +3,6 @@ require('dotenv').config()
 /**
  * URL to the MongoDB instance.
  */
-console.log(process.env.MongoDB_URL)
 // Tell Mongoose to connect to the MongoDB instance using the provided configuration.
 mongoose.connect(process.env.MongoDB_URL);
 
